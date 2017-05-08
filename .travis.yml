@@ -5,8 +5,11 @@ php:
   - 7.0
 
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --prefer-source --no-interaction --dev
+  - cp .env.travis .env
+  - mysql -e 'create database algebra_box;'
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+  - php artisan key:generate
 
 script: phpunit
 
