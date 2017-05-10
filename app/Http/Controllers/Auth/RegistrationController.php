@@ -10,6 +10,8 @@ use App\Http\Requests;
 use Centaur\AuthManager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\UsersRoot;
+use Storage;
 
 class RegistrationController extends Controller
 {
@@ -106,6 +108,20 @@ class RegistrationController extends Controller
             $result->setRedirectUrl(route('auth.login.form'));
             return $result->dispatch();
         }
+		
+		//Create user root directory
+		$dir = md5(uniqid());
+		$dirExist = Storage::disk('public')->allDirectories();
+		
+		if(!in_array($dir, $dirExist)){
+			Storage::disk('public')->makeDirectory($dir);
+			$users_root = new UsersRoot();
+			$users_root->name = $dir;
+			$users_root->user_id = $result->user->id;
+			$users_root->save();
+		}else{
+			session()->flash('error', 'The map already exists!');
+		}	
 
         // Ask the user to check their email for the activation link
         $result->setMessage('Registration complete.  You may now log in.');
