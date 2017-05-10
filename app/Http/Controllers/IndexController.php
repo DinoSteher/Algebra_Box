@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -23,6 +24,8 @@ class IndexController extends Controller
      */
     public function index()
     {
+		Storage::disk('public')->makeDirectory('pero');
+				
         return view('index');
     }
 }

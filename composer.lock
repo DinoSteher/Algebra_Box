@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fd96634728e63709d106866dbd9ede72",
+    "hash": "4bca2839a9684d39b729d1dfbb55ec7f",
     "content-hash": "b6337a842cbf3a2c9dcd61283e2e88b1",
     "packages": [
         {
@@ -2657,12 +2657,12 @@
             "version": "0.9.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "65d4ca18e15cb02eeb1e5336f884e46b9b905be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
                 "reference": "65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
                 "shasum": ""
             },
