@@ -13,9 +13,18 @@
 
 // Index page
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
-// Home page
-Route::get('home', ['as' => 'home', 'uses' => 'User\HomeController@index']);
 
+/*############# HOME ##############*/
+Route::group(['prefix' => 'home'], function () {
+	// Home page
+	Route::get('/', ['as' => 'home', 'uses' => 'User\HomeController@index']);
+	// Directory page
+	Route::get('/{name}', ['as' => 'home.directory', 'uses' => 'User\HomeController@show']);
+	// Create directory
+	Route::post('/', ['as' => 'home.directory.create', 'uses' => 'User\HomeController@create']);
+	// Delete directory
+	Route::delete('/{name}', ['as' => 'home.directory.delete', 'uses' => 'User\HomeController@deleteDir']);
+});
 // Authorization
 Route::get('login', ['as' => 'auth.login.form', 'uses' => 'Auth\SessionController@getLogin']);
 Route::post('login', ['as' => 'auth.login.attempt', 'uses' => 'Auth\SessionController@postLogin']);
